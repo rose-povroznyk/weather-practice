@@ -19,7 +19,12 @@
 }
 
 .weather {
+  display: none;
   border: 2px solid greenyellow;
   padding: 20px;
   margin: 20px;
+}
+
+.weather-display {
+  display: block;
 }

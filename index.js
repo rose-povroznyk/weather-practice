@@ -21,12 +21,6 @@ function requestApi(cityName) {
     .then((data) => displayWeather(data));
 }
 
-// <!-- <article class="weather">
-// <p>City name: Kyiv</p>
-// <p>Temperature: 7°C</p>
-// <p>Weather description: overcast clouds</p>
-// </article> -->
-
 function displayWeather(weatherObj) {
   const {
     name,
@@ -34,23 +28,33 @@ function displayWeather(weatherObj) {
     weather: [{ description }],
   } = weatherObj;
 
-  const article = document.createElement('article');
-  article.classList.add('weather');
-  const cityName = document.createElement('p');
-  cityName.append(`City name: ${name}`);
+  const article = document.querySelector('#weather-box');
+  article.classList.add('weather-display');
 
-  const temperature = document.createElement('p');
-  temperature.append(`Temperature: ${temp}°C`);
+  const city = document.querySelector('#city');
+  city.textContent = name;
+  const temperature = document.querySelector('#temperature');
+  temperature.textContent = `${temp}°C`;
+  const weatherDescr = document.querySelector('#description');
+  weatherDescr.textContent = description;
 
-  const weatherDescr = document.createElement('p');
-  weatherDescr.append(`Weather description: ${description}`);
+  // const article = document.createElement('article');
+  // article.classList.add('weather');
+  // const cityName = document.createElement('p');
+  // cityName.append(`City name: ${name}`);
 
-  article.append(cityName, temperature, weatherDescr);
-  const section = document.querySelector('.wrapper');
+  // const temperature = document.createElement('p');
+  // temperature.append(`Temperature: ${temp}°C`);
 
-  if (document.querySelector('.weather')) {
-    document.querySelector('.weather').remove();
-  }
-  section.append(article);
-  console.dir(section);
+  // const weatherDescr = document.createElement('p');
+  // weatherDescr.append(`Weather description: ${description}`);
+
+  // article.append(cityName, temperature, weatherDescr);
+  // const section = document.querySelector('.wrapper');
+
+  // if (document.querySelector('.weather')) {
+  //   document.querySelector('.weather').remove();
+  // }
+  // section.append(article);
+  // console.dir(section);
 }
